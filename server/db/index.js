@@ -11,7 +11,8 @@ var mysql = require('mysql2');
 var con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: ''
+  password: '',
+  database: 'chat'
 });
 
 con.connect(function(err) {
@@ -19,6 +20,15 @@ con.connect(function(err) {
     throw err;
   }
   console.log('Connected!');
+  // con.query('DESCRIBE messages', function (err, result) {
+  //   if (err) { throw err; }
+  //   console.log('Result: ', result);
+  // });
+
 });
 
-module.exports = con;
+
+
+//con.config.database = 'chat';
+
+module.exports.con = con;
